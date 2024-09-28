@@ -83,7 +83,6 @@ bool C_CSPlayerPawn::CanAttack(const float flServerTime)
 	return true;
 }
 
-
 std::uint32_t C_CSPlayerPawn::GetOwnerHandleIndex()
 {
 	std::uint32_t Result = -1;
@@ -111,7 +110,7 @@ bool C_CSWeaponBaseGun::CanPrimaryAttack(const int nWeaponType, const float flSe
 			return true;
 	}
 
-		// check is weapon ready to attack
+	// check is weapon ready to attack
 	if (this->GetNextPrimaryAttackTick() > TIME_TO_TICKS(flServerTime))
 		return false;
 

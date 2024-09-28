@@ -43,6 +43,9 @@
     <Filter Include="features\legitbot">
       <UniqueIdentifier>{a0df371b-f244-4c53-b08d-762a0f9b6b0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="features\ragebot">
+      <UniqueIdentifier>{94407f86-a257-4ae7-a62e-b24c48a9749e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\dependencies\imgui\imconfig.h">
@@ -323,6 +326,12 @@
     <ClInclude Include="features\legitbot\aim.h">
       <Filter>features\legitbot</Filter>
     </ClInclude>
+    <ClInclude Include="aim.h">
+      <Filter>features\ragebot</Filter>
+    </ClInclude>
+    <ClInclude Include="itrace.h">
+      <Filter>sdk\interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\dependencies\imgui\imgui.cpp">
@@ -441,6 +450,12 @@
     </ClCompile>
     <ClCompile Include="features\legitbot.cpp">
       <Filter>features</Filter>
+    </ClCompile>
+    <ClCompile Include="aim.cpp">
+      <Filter>features\ragebot</Filter>
+    </ClCompile>
+    <ClCompile Include="itrace.cpp">
+      <Filter>sdk\interfaces</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

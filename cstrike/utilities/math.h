@@ -86,6 +86,17 @@ namespace MATH
 		return value != 0 && (value & (value - 1)) == 0;
 	}
 
+	[[nodiscard]] CS_INLINE float normalize_yaw(float yaw) noexcept
+	{
+		while (yaw > 180.0f)
+			yaw -= 360.0f;
+
+		while (yaw < -180.0f)
+			yaw += 360.0f;
+
+		return yaw;
+	}
+
 	/* @section: random using game's exports */
 	inline int(CS_CDECL* fnRandomSeed)(int iSeed) = nullptr;
 	inline float(CS_CDECL* fnRandomFloat)(float flMinValue, float flMaxValue) = nullptr;

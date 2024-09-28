@@ -49,7 +49,7 @@ public:
 	{
 		if (!IsValid())
 			return ENT_ENTRY_MASK;
-		
+
 		return GetIndex() & ENT_ENTRY_MASK;
 	}
 
@@ -101,6 +101,7 @@ public:
 };
 
 class CSkeletonInstance;
+
 class CGameSceneNode
 {
 public:
@@ -142,8 +143,7 @@ public:
 	{
 		static SchemaClassInfoData_t* pWeaponBaseClass = nullptr;
 		if (pWeaponBaseClass == nullptr)
-		I::SchemaSystem->FindTypeScopeForModule(CS_XOR("client.dll"))->FindDeclaredClass(&pWeaponBaseClass, CS_XOR("C_CSWeaponBase"));
-
+			I::SchemaSystem->FindTypeScopeForModule(CS_XOR("client.dll"))->FindDeclaredClass(&pWeaponBaseClass, CS_XOR("C_CSWeaponBase"));
 
 		SchemaClassInfoData_t* pClassInfo;
 		GetSchemaClassInfo(&pClassInfo);
@@ -205,7 +205,7 @@ class CCSPlayer_WeaponServices : public CPlayer_WeaponServices
 {
 public:
 	SCHEMA_ADD_FIELD(GameTime_t, GetNextAttack, "CCSPlayer_WeaponServices->m_flNextAttack");
-}; 
+};
 
 class C_BasePlayerPawn : public C_BaseModelEntity
 {
@@ -274,6 +274,7 @@ public:
 // forward decleration
 class C_CSWeaponBaseGun;
 class C_BasePlayerWeapon;
+
 class CCSPlayerController : public CBasePlayerController
 {
 public:
@@ -329,6 +330,7 @@ public:
 	CS_CLASS_NO_INITIALIZER(CAttributeManager);
 	virtual ~CAttributeManager() = 0;
 };
+
 static_assert(sizeof(CAttributeManager) == 0x8);
 
 class C_AttributeContainer : public CAttributeManager

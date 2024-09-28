@@ -27,19 +27,19 @@ void F::LEGITBOT::AIM::OnMove(CUserCmd* pCmd, CBaseUserCmdPB* pBaseCmd, CCSPlaye
 	AimAssist(pBaseCmd, pLocalPawn, pLocalController);
 }
 
-QAngle_t GetRecoil(CBaseUserCmdPB* pCmd,C_CSPlayerPawn* pLocal)
+QAngle_t GetRecoil(CBaseUserCmdPB* pCmd, C_CSPlayerPawn* pLocal)
 {
-	static QAngle_t OldPunch;//get last tick AimPunch angles
-	if (pLocal->GetShotsFired() >= 1)//only update aimpunch while shooting
+	static QAngle_t OldPunch; //get last tick AimPunch angles
+	if (pLocal->GetShotsFired() >= 1) //only update aimpunch while shooting
 	{
 		QAngle_t viewAngles = pCmd->pViewAngles->angValue;
-		QAngle_t delta = viewAngles - (viewAngles + (OldPunch - (pLocal->GetAimPuchAngle() * 2.f)));//get current AimPunch angles delta
+		QAngle_t delta = viewAngles - (viewAngles + (OldPunch - (pLocal->GetAimPuchAngle() * 2.f))); //get current AimPunch angles delta
 
-		return pLocal->GetAimPuchAngle() * 2.0f;//return correct aimpunch delta
+		return pLocal->GetAimPuchAngle() * 2.0f; //return correct aimpunch delta
 	}
 	else
 	{
-		return QAngle_t{ 0, 0 ,0};//return 0 if is not shooting
+		return QAngle_t{ 0, 0, 0 }; //return 0 if is not shooting
 	}
 }
 
@@ -156,12 +156,12 @@ void F::LEGITBOT::AIM::AimAssist(CBaseUserCmdPB* pUserCmd, C_CSPlayerPawn* pLoca
 		// @note: would recommend checking for nullptrs
 		I::GameTraceManager->TraceShape(&ray, pLocalPawn->GetEyePosition(), pPawn->GetGameSceneNode()->GetSkeletonInstance()->pBoneCache->GetOrigin(6), &filter, &trace);
 		// check if the hit entity is the one we wanted to check and if the trace end point is visible
-		if (trace.m_pHitEntity != pPawn || !trace.IsVisible())// if invisible, skip this entity
+		if (trace.m_pHitEntity != pPawn || !trace.IsVisible()) // if invisible, skip this entity
 			continue;
 
 		// Get the distance/weight of the move
 		float flCurrentDistance = GetAngularDistance(pUserCmd, vecPos, pLocalPawn);
-		if (flCurrentDistance > C_GET(float, Vars.flAimRange))// Skip if this move out of aim range
+		if (flCurrentDistance > C_GET(float, Vars.flAimRange)) // Skip if this move out of aim range
 			continue;
 		if (pTarget && flCurrentDistance > flDistance) // Override if this is the first move or if it is a better move
 			continue;
@@ -184,9 +184,9 @@ void F::LEGITBOT::AIM::AimAssist(CBaseUserCmdPB* pUserCmd, C_CSPlayerPawn* pLoca
 
 	// Get the smoothing
 	const float flSmoothing = C_GET(float, Vars.flSmoothing);
-	auto aimPunch =  GetRecoil(pUserCmd, pLocalPawn); //get AimPunch angles
+	auto aimPunch = GetRecoil(pUserCmd, pLocalPawn); //get AimPunch angles
 	// Apply smoothing and set angles
-	pViewAngles->x +=  ( vNewAngles.x - aimPunch.x ) / flSmoothing;// minus AimPunch angle to counteract recoil
-	pViewAngles->y +=  ( vNewAngles.y - aimPunch.y ) / flSmoothing;
+	pViewAngles->x += (vNewAngles.x - aimPunch.x) / flSmoothing; // minus AimPunch angle to counteract recoil
+	pViewAngles->y += (vNewAngles.y - aimPunch.y) / flSmoothing;
 	pViewAngles->Normalize();
 }

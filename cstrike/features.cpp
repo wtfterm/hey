@@ -14,6 +14,7 @@
 #include "features/visuals.h"
 #include "features/misc.h"
 #include "features/legitbot.h"
+#include "features/ragebot.h"
 
 // used: interfaces
 #include "core/interfaces.h"

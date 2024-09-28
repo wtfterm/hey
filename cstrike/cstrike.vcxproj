@@ -64,7 +64,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NOMINMAX;_DEBUG;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)dependencies;$(SolutionDir)dependencies\freetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\asphyxia\cstrike\sdk\interfaces;D:\asphyxia\cstrike\features\ragebot;$(SolutionDir)dependencies;$(SolutionDir)dependencies\freetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <SupportJustMyCode>false</SupportJustMyCode>
@@ -144,6 +144,7 @@
     <ClInclude Include="..\resources\font_awesome_5.h" />
     <ClInclude Include="..\resources\game_icons.h" />
     <ClInclude Include="..\resources\smallest_pixel.h" />
+    <ClInclude Include="aim.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="core\config.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="features\visuals.h" />
     <ClInclude Include="features\visuals\chams.h" />
     <ClInclude Include="features\visuals\overlay.h" />
+    <ClInclude Include="itrace.h" />
     <ClInclude Include="sdk\interfaces\cgametracemanager.h" />
     <ClInclude Include="sdk\interfaces\ipvs.h" />
     <ClInclude Include="sdk\const.h" />
@@ -229,8 +231,10 @@
     <ClCompile Include="..\dependencies\minhook\hde\hde64.c" />
     <ClCompile Include="..\dependencies\minhook\hook.c" />
     <ClCompile Include="..\dependencies\minhook\trampoline.c" />
+    <ClCompile Include="aim.cpp" />
     <ClCompile Include="features\legitbot.cpp" />
     <ClCompile Include="features\legitbot\aim.cpp" />
+    <ClCompile Include="itrace.cpp" />
     <ClCompile Include="sdk\interfaces\cgametracemanager.cpp" />
     <ClCompile Include="core.cpp" />
     <ClCompile Include="core\config.cpp" />

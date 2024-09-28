@@ -115,7 +115,13 @@ struct Variables_t
 	C_ADD_VARIABLE(float, flSmoothing, 10.0f);
 	C_ADD_VARIABLE(bool, bLegitbotAlwaysOn, false);
 	C_ADD_VARIABLE(unsigned int, nLegitbotActivationKey, VK_HOME);
+#pragma region variables_ragebot
+	C_ADD_VARIABLE(bool, bRagebot, false);
+	C_ADD_VARIABLE(bool, bSilentaim, false);
+	C_ADD_VARIABLE(bool, bRagebotAlwaysOn, false);
+	C_ADD_VARIABLE(unsigned int, nRagebotActivationKey, VK_END);
 #pragma endregion
 };
+
 
 inline Variables_t Vars = {};

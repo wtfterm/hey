@@ -351,7 +351,29 @@ void T::Render(const char* szTabBar, const CTab* arrTabs, const unsigned long lo
 }
 
 void T::RageBot()
-{ }
+{
+	ImGui::BeginChild(CS_XOR("ragebot.rage"), ImVec2{}, true, ImGuiWindowFlags_MenuBar);
+	{
+		if (ImGui::BeginMenuBar())
+		{
+			ImGui::TextUnformatted(CS_XOR("rage"));
+			ImGui::EndMenuBar();
+		}
+
+		ImGui::Checkbox(CS_XOR("enable##rage"), &C_GET(bool, Vars.bRagebot));
+		ImGui::NewLine();
+		ImGui::Checkbox(CS_XOR("silent aim##rage"), &C_GET(bool, Vars.bSilentaim));
+
+		// Key
+		ImGui::Checkbox(CS_XOR("always on##rage"), &C_GET(bool, Vars.bRagebotAlwaysOn));
+		ImGui::BeginDisabled(C_GET(bool, Vars.bRagebotAlwaysOn));
+		{
+			ImGui::HotKey(CS_XOR("toggle key"), &C_GET(unsigned int, Vars.nRagebotActivationKey));
+		}
+		ImGui::EndDisabled();
+	}
+	ImGui::EndChild();
+}
 
 void T::LegitBot()
 {
@@ -367,7 +389,7 @@ void T::LegitBot()
 		ImGui::SliderFloat(CS_XOR("aim range"), &C_GET(float, Vars.flAimRange), 1.f, 135.f);
 		ImGui::SliderFloat(CS_XOR("smoothing"), &C_GET(float, Vars.flSmoothing), 1.f, 100.f);
 
-		ImGui::NewLine();
+
 		// Key
 		ImGui::Checkbox(CS_XOR("always on##aimbot"), &C_GET(bool, Vars.bLegitbotAlwaysOn));
 		ImGui::BeginDisabled(C_GET(bool, Vars.bLegitbotAlwaysOn));
