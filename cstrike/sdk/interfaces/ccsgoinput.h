@@ -74,9 +74,9 @@ public:
 		using fnSetViewAngle = std::int64_t(CS_FASTCALL*)(void*, std::int32_t, QAngle_t&);
 		static auto oSetViewAngle = reinterpret_cast<fnSetViewAngle>(MEM::FindPattern(CLIENT_DLL, CS_XOR("85 D2 75 3F 48")));
 
-		#ifdef CS_PARANOID
+#ifdef CS_PARANOID
 		CS_ASSERT(oSetViewAngle != nullptr);
-		#endif
+#endif
 
 		oSetViewAngle(this, 0, std::ref(angView));
 	}
@@ -86,10 +86,23 @@ public:
 		using fnGetViewAngles = std::int64_t(CS_FASTCALL*)(CCSGOInput*, std::int32_t);
 		static auto oGetViewAngles = reinterpret_cast<fnGetViewAngles>(MEM::FindPattern(CLIENT_DLL, CS_XOR("4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3")));
 
-		#ifdef CS_PARANOID
+#ifdef CS_PARANOID
 		CS_ASSERT(oGetViewAngles != nullptr);
-		#endif
+#endif
 
 		return *reinterpret_cast<QAngle_t*>(oGetViewAngles(this, 0));
 	}
+
+	static CCSGOInput* GetCCSGOInput()
+	{
+		// Return the CCSGOInput object
+		if (!g_pCCSGOInput)
+		{
+			g_pCCSGOInput = new CCSGOInput();
+		}
+		return g_pCCSGOInput;
+	}
+
+private:
+	static CCSGOInput* g_pCCSGOInput;
 };

@@ -363,7 +363,8 @@ void T::RageBot()
 		ImGui::Checkbox(CS_XOR("enable##rage"), &C_GET(bool, Vars.bRagebot));
 		ImGui::NewLine();
 		ImGui::Checkbox(CS_XOR("silent aim##rage"), &C_GET(bool, Vars.bSilentaim));
-
+		ImGui::Checkbox(CS_XOR("autoshoot##rage"), &C_GET(bool, Vars.bAutoShoot));
+		ImGui::Checkbox(CS_XOR("autowall##rage"), &C_GET(bool, Vars.bAutoWall));
 		// Key
 		ImGui::Checkbox(CS_XOR("always on##rage"), &C_GET(bool, Vars.bRagebotAlwaysOn));
 		ImGui::BeginDisabled(C_GET(bool, Vars.bRagebotAlwaysOn));

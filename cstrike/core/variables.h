@@ -118,6 +118,8 @@ struct Variables_t
 #pragma region variables_ragebot
 	C_ADD_VARIABLE(bool, bRagebot, false);
 	C_ADD_VARIABLE(bool, bSilentaim, false);
+	C_ADD_VARIABLE(bool, bAutoShoot, false);
+	C_ADD_VARIABLE(bool, bAutoWall, false);
 	C_ADD_VARIABLE(bool, bRagebotAlwaysOn, false);
 	C_ADD_VARIABLE(unsigned int, nRagebotActivationKey, VK_END);
 #pragma endregion

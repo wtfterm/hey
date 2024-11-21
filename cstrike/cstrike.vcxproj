@@ -235,6 +235,7 @@
     <ClCompile Include="features\legitbot.cpp" />
     <ClCompile Include="features\legitbot\aim.cpp" />
     <ClCompile Include="itrace.cpp" />
+    <ClCompile Include="sdk\interfaces\ccsgoinput.cpp" />
     <ClCompile Include="sdk\interfaces\cgametracemanager.cpp" />
     <ClCompile Include="core.cpp" />
     <ClCompile Include="core\config.cpp" />
